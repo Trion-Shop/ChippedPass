@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -56,50 +55,59 @@ fun ChippedMatchesTab(
                     items(uiState.archetypes, key = { it.id }) { archetype ->
                         Card(
                             modifier = Modifier
-                                .width(205.dp)
+                                .width(190.dp)
                                 .clickable { onSelectArchetype(archetype) }
                                 .border(1.dp, ChipBorder, RoundedCornerShape(14.dp)),
                             shape = RoundedCornerShape(14.dp),
                             colors = CardDefaults.cardColors(containerColor = ChipDarkCard)
                         ) {
                             Column(modifier = Modifier.padding(12.dp)) {
+                                Text(
+                                    text = archetype.techniqueTitle,
+                                    fontSize = 14.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    color = ChipWhite
+                                )
+                                Text(
+                                    text = archetype.deliveryType,
+                                    fontSize = 10.sp,
+                                    color = ChipRedFlame
+                                )
+
+                                Spacer(modifier = Modifier.height(8.dp))
+
                                 Row(
                                     modifier = Modifier.fillMaxWidth(),
                                     horizontalArrangement = Arrangement.SpaceBetween,
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
                                     Text(
-                                        text = archetype.techniqueTitle,
-                                        color = ChipWhite,
-                                        fontSize = 13.sp,
-                                        fontWeight = FontWeight.Bold
+                                        text = "${archetype.backspinRpm} RPM",
+                                        fontSize = 12.sp,
+                                        fontWeight = FontWeight.ExtraBold,
+                                        color = ChipBlueBright
                                     )
                                     Box(
                                         modifier = Modifier
-                                            .clip(CircleShape)
+                                            .clip(RoundedCornerShape(4.dp))
                                             .background(ChipDarkElevated)
                                             .padding(horizontal = 6.dp, vertical = 2.dp)
                                     ) {
                                         Text(
                                             text = "${archetype.clearanceApexMeters}m apex",
-                                            color = ChipBlueBright,
-                                            fontSize = 10.sp,
-                                            fontWeight = FontWeight.Bold
+                                            fontSize = 9.sp,
+                                            fontWeight = FontWeight.Bold,
+                                            color = ChipBlue
                                         )
                                     }
                                 }
-                                Text(
-                                    text = archetype.deliveryType,
-                                    color = ChipRedFlame,
-                                    fontSize = 10.sp
-                                )
-                                Spacer(modifier = Modifier.height(4.dp))
+
+                                Spacer(modifier = Modifier.height(6.dp))
                                 Text(
                                     text = archetype.biomechanicsBreakdown,
-                                    color = ChipSoftSilver,
                                     fontSize = 10.sp,
-                                    maxLines = 2,
-                                    lineHeight = 13.sp
+                                    color = ChipSoftSilver,
+                                    maxLines = 1
                                 )
                             }
                         }
