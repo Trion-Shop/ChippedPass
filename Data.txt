@@ -1,0 +1,18 @@
+Application Name: Chipped Pass
+Package Name: com.megapari.chippedpass
+Activity / Launchable: com.megapari.chippedpass.MainActivity
+Target Platform: Android (compileSdk 36, targetSdk 36, minSdk 26)
+Architecture / Framework: Kotlin, Jetpack Compose, Material 3, Clean Architecture (Domain/Data/Presentation)
+
+Key Store:
+  Path: app/ChippedPass.jks
+  Alias: chippedpass
+  Store Password: Password123!
+  Key Password: Password123!
+
+Key Hash:
+  uf6s6zEiaGOEVpCkItULiEtsLb4=
+
+Fingerprints:
+  SHA1: B9:FE:AC:EB:31:22:68:63:84:56:90:A4:22:D5:0B:88:4B:6C:2D:BE
+  SHA256: 4A:99:E6:9E:82:D0:D4:DA:8F:26:AE:33:8F:C5:65:F9:A4:E6:2E:3F:17:9D:53:0D:2E:F0:98:03:54:07:56:DA
